@@ -5,7 +5,7 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 import pj_logo from "../../assets/pj_logo.png";
 import DropDown from "../DropDown/";
 import Flags from "../../sources/flags";
-import { small, medium } from "../../Responsive";
+import { mobile, small, medium } from "../../Responsive";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 
 const HeaderTop = () => {
@@ -99,7 +99,9 @@ const LeftMenu = styled.div`
   display: flex;
   align-items: center;
   ${small({ justifyContent: "center", width: "85%", paddingTop: "6px" })};
+  ${mobile({ width: "70%" })};
 `;
+
 const MenuItem = styled.a`
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 23px;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mobile, small, medium } from "../../Responsive";
 
 const PromoCode = () => {
   return (
@@ -8,8 +9,10 @@ const PromoCode = () => {
           <p>
             Got a Promo code? <span>Enter here</span>
           </p>
-          <Input placeholder="Enter a promo code" />
-          <Button>OK</Button>
+          <InputContainer>
+            <Input placeholder="Enter a promo code" />
+            <Button>OK</Button>
+          </InputContainer>
         </InWrapper>
       </Wrapper>
     </Container>
@@ -30,6 +33,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background: #f1f1f1;
+  ${mobile({ padding: "10px 0 10px" })}
 `;
 
 const InWrapper = styled.div`
@@ -38,20 +42,28 @@ const InWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  ${mobile({ flexDirection: "column" })}
+
   & p {
     font-family: "Open Sans Condensed", sans-serif;
     font-size: 32px;
     font-weight: 700;
     line-height: 34px;
     color: #363636;
+
+    ${mobile({ fontSize: "22px", paddingBottom: "3px" })}
+
     & span {
       color: #0f9675;
     }
   }
 `;
+const InputContainer = styled.div`
+  margin-left: 39px;
+  ${mobile({ marginLeft: "0px" })}
+`;
 
 const Input = styled.input`
-  margin-left: 39px;
   background: #ffffff;
   border: 1px solid #0f9675;
   border-radius: 8px;
@@ -65,9 +77,11 @@ const Input = styled.input`
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 700;
   width: 200px;
+
   &::placeholder {
     color: #666;
     opacity: 0.4;
+    ${mobile({ fontSize: "16px" })}
   }
 
   &:-ms-input-placeholder {
@@ -79,6 +93,7 @@ const Input = styled.input`
     color: #666;
     opacity: 0.4;
   }
+  ${mobile({ height: "27px", width: "170px" })}
 `;
 const Button = styled.button`
   border: none;
@@ -95,4 +110,6 @@ const Button = styled.button`
   border-radius: 8px;
   margin-left: 13px;
   transition: all, 0.3s;
+
+  ${mobile({ height: "27px" })}
 `;

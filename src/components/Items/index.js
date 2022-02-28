@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mobile, small, medium } from "../../Responsive";
 
 const Items = ({ items }) => {
   return (
@@ -24,6 +25,9 @@ export default Items;
 const Cart = styled.div`
   width: 25%;
   padding: 0 13px 37px;
+  ${medium({ width: "33.3333333%" })}
+  ${small({ width: "50%" })}
+  ${mobile({ width: "100%" })}
 `;
 
 const ImageContainer = styled.div`
@@ -33,6 +37,7 @@ const Image = styled.img`
   width: 100%;
   min-width: 100%;
   min-height: 220px;
+  ${mobile({ height: "220px", objectFit: "cover" })}
 `;
 const Title = styled.div`
   display: flex;

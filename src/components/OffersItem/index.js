@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { medium } from "../../Responsive";
+import { mobile, medium } from "../../Responsive";
 
 const OffersItem = ({ items }) => {
   return (
@@ -19,6 +19,7 @@ const Cart = styled.div`
   width: 25%;
   padding: 20px 20px 67px 20px;
   ${medium({ width: "50%" })}
+  ${mobile({ width: "100%" })}
 `;
 
 const Image = styled.img`

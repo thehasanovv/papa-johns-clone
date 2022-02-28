@@ -11,12 +11,14 @@ const Offers = () => {
   return (
     <>
       <Navbar />
-      <PromoCode />
-      <Container>
-        <OffersContainer>
-          <Items items={salads} />
-        </OffersContainer>
-      </Container>
+      <MainContainer>
+        <PromoCode />
+        <Container>
+          <OffersContainer>
+            <Items items={salads} />
+          </OffersContainer>
+        </Container>
+      </MainContainer>
       <Footer />
     </>
   );
@@ -32,3 +34,5 @@ const OffersContainer = styled.div`
   line-height: 0;
   margin-bottom: 40px;
 `;
+
+const MainContainer = styled.div``;

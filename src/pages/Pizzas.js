@@ -1,13 +1,11 @@
 import styled from "styled-components";
-
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PromoCode from "../components/PromoCode";
 import Container from "../components/Container";
 import Items from "../components/Items";
-
 import { pizzas } from "../sources/pizzas";
-
+import { mobile } from "../Responsive";
 const Pizzas = () => {
   return (
     <>
@@ -64,4 +62,6 @@ const ListItem = styled.li`
   -webkit-transition: all, 0.3s;
   transition: all, 0.3s;
   cursor: pointer;
+
+  ${mobile({ marginRight: "14px" })}
 `;

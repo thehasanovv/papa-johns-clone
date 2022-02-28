@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { medium } from "../../Responsive";
+import { mobile, medium } from "../../Responsive";
 
 const HeaderBottom = () => {
   return (
@@ -98,6 +98,8 @@ const Container = styled.div`
   padding: 32px 0 32px;
   position: relative;
 
+  ${mobile({ paddingTop: "16px", paddingBottom: "16px" })}
+
   @media (max-width: 1300px) {
     &:before {
       content: "";
@@ -183,6 +185,7 @@ const ListItem = styled.li`
   & a {
     color: #fff;
   }
+  ${mobile({ fontSize: "14px", paddingLeft: "20px" })}
 `;
 
 const Points = styled.div``;

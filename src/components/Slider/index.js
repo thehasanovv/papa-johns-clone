@@ -10,6 +10,8 @@ import discountAge from "../../assets/discountAge.jpg";
 import twoBig from "../../assets/two-big-banner.png";
 import styled from "styled-components";
 
+import { mobile } from "../../Responsive";
+
 const Slider = () => {
   return (
     <Container>
