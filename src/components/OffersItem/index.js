@@ -6,8 +6,10 @@ const OffersItem = ({ items }) => {
     <>
       {items.map((item) => (
         <Cart key={item.id}>
-          <Image src={item.image} />
-          <Button>See More</Button>
+          <CartWrapper>
+            <Image src={item.image} />
+            <Button>See More</Button>
+          </CartWrapper>
         </Cart>
       ))}
     </>
@@ -17,15 +19,18 @@ export default OffersItem;
 
 const Cart = styled.div`
   width: 25%;
-  padding: 20px 20px 67px 20px;
+  padding: 15px 15px 67px 15px;
+
+  ${medium({ width: "50%" })}
+  ${mobile({ width: "100%" })}
+`;
+const CartWrapper = styled.div`
+  padding: 5px 5px 0px 5px;
 
   &:hover {
     transform: scale(1.01);
     background: whitesmoke;
   }
-
-  ${medium({ width: "50%" })}
-  ${mobile({ width: "100%" })}
 `;
 
 const Image = styled.img`

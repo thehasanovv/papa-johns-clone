@@ -6,14 +6,16 @@ const Items = ({ items }) => {
     <>
       {items.map((item) => (
         <Cart key={item.id}>
-          <ImageContainer>
-            <Image src={item.image} />
-          </ImageContainer>
-          <Title>
-            <span>{item.name}</span>
-            <Button>SELECT</Button>
-          </Title>
-          <Ingredients>{item.ingredients}</Ingredients>
+          <Cartcontainer>
+            <ImageContainer>
+              <Image src={item.image} />
+            </ImageContainer>
+            <Title>
+              <span>{item.name}</span>
+              <Button>SELECT</Button>
+            </Title>
+            <Ingredients>{item.ingredients}</Ingredients>
+          </Cartcontainer>
         </Cart>
       ))}
     </>
@@ -24,14 +26,8 @@ export default Items;
 
 const Cart = styled.div`
   width: 25%;
-  padding: 0 13px 37px;
+  padding: 0 8px 32px;
 
-  &:hover {
-    transform: scale(1.01);
-    background: whitesmoke;
-  }
-
-  ${large({ width: "20%" })}
   ${medium({ width: "33.3333333%" })}
   ${small({ width: "50%" })}
   ${mobile({ width: "100%" })}
@@ -41,11 +37,18 @@ const ImageContainer = styled.div`
   margin-bottom: 10px;
   overflow: hidden;
 `;
+
+const Cartcontainer = styled.div`
+  padding: 0 5px 32px;
+  &:hover {
+    transform: scale(1.01);
+    background-color: whitesmoke;
+  }
+`;
 const Image = styled.img`
   width: 100%;
   min-width: 100%;
   min-height: 220px;
-  object-fit: contain;
 
   ${mobile({ height: "220px", objectFit: "cover" })}
 `;

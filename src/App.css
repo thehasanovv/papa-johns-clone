@@ -13,6 +13,7 @@ li {
 a {
   text-decoration: none;
 }
+
 body {
   height: 100%;
   font-weight: 400;
@@ -22,6 +23,17 @@ body {
   background: #ffffff;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8a191d;
+  border-radius: 10px;
+}
 .isActive::before {
   content: "";
   position: absolute;

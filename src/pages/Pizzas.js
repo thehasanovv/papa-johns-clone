@@ -6,6 +6,7 @@ import Container from "../components/Container";
 import Items from "../components/Items";
 import { pizzas } from "../sources/pizzas";
 import { mobile } from "../Responsive";
+
 const Pizzas = () => {
   return (
     <>
