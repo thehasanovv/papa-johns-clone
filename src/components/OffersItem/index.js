@@ -18,6 +18,12 @@ export default OffersItem;
 const Cart = styled.div`
   width: 25%;
   padding: 20px 20px 67px 20px;
+
+  &:hover {
+    transform: scale(1.01);
+    background: whitesmoke;
+  }
+
   ${medium({ width: "50%" })}
   ${mobile({ width: "100%" })}
 `;
@@ -44,4 +50,9 @@ const Button = styled.button`
   height: 39px;
   line-height: 39px;
   border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;

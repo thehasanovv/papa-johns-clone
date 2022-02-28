@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobile, small, medium } from "../../Responsive";
+import { mobile, small, medium, large } from "../../Responsive";
 
 const Items = ({ items }) => {
   return (
@@ -25,6 +25,13 @@ export default Items;
 const Cart = styled.div`
   width: 25%;
   padding: 0 13px 37px;
+
+  &:hover {
+    transform: scale(1.01);
+    background: whitesmoke;
+  }
+
+  ${large({ width: "20%" })}
   ${medium({ width: "33.3333333%" })}
   ${small({ width: "50%" })}
   ${mobile({ width: "100%" })}
@@ -32,17 +39,21 @@ const Cart = styled.div`
 
 const ImageContainer = styled.div`
   margin-bottom: 10px;
+  overflow: hidden;
 `;
 const Image = styled.img`
   width: 100%;
   min-width: 100%;
   min-height: 220px;
+  object-fit: contain;
+
   ${mobile({ height: "220px", objectFit: "cover" })}
 `;
 const Title = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 10px;
+  gap: 2px;
 
   & span {
     font-family: "Open Sans Condensed", sans-serif;
@@ -53,7 +64,7 @@ const Title = styled.div`
   }
 `;
 const Button = styled.button`
-  padding: 0 21px;
+  padding: 0 16px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -68,6 +79,11 @@ const Button = styled.button`
   height: 39px;
   line-height: 39px;
   border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 const Ingredients = styled.p`
   font-family: Arial, sans-serif;

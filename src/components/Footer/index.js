@@ -67,6 +67,7 @@ const InWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
   ${medium({ flexDirection: "column" })}
 `;
 
@@ -95,6 +96,10 @@ const List = styled.ul`
 `;
 const ListItem = styled.li`
   margin-left: 11px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
 
   ${medium({ marginLeft: "10px" })}
 `;
@@ -115,7 +120,7 @@ const BgImage = styled.img`
   background-repeat: no-repeat;
   cursor: pointer;
   border-right: 2px solid #eee;
-  padding-right: 19px;
+  padding-right: 22px;
   ${mobile({ width: "160px", height: "30px" })};
 `;
 
@@ -125,9 +130,13 @@ const Icons = styled.div`
 `;
 
 const Icon = styled.span`
-  margin-left: 28px;
+  margin-left: 22px;
   text-rendering: auto;
   -webkit-font-smoothing: antialiase;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
 
   ${mobile({ marginLeft: "20px", svg: { fontSize: "16px" } })}
 `;

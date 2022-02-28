@@ -24,22 +24,22 @@ const Slider = () => {
         showStatus={false}
       >
         <div>
-          <img src={chiken} />
+          <Image src={chiken} />
         </div>
         <div>
-          <img src={combo} />
+          <Image src={combo} />
         </div>
         <div>
-          <img src={odChershenbesi} />
+          <Image src={odChershenbesi} />
         </div>
         <div>
-          <img src={discountAge} />
+          <Image src={discountAge} />
         </div>
         <div>
-          <img src={pizzaParty} />
+          <Image src={pizzaParty} />
         </div>
         <div>
-          <img src={twoBig} />
+          <Image src={twoBig} />
         </div>
       </Carousel>
     </Container>
@@ -54,4 +54,8 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 0 10px;
   margin-bottom: 30px;
+`;
+
+const Image = styled.img`
+  ${mobile({ minHeight: "160px" })}
 `;

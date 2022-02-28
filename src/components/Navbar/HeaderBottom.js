@@ -162,6 +162,9 @@ const Wrap = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  &::-webkit-scrollbar {
+    height: 0px;
+  }
   ${medium({
     overflowY: "hidden",
     overflowX: "auto",
@@ -184,6 +187,10 @@ const ListItem = styled.li`
 
   & a {
     color: #fff;
+    
+    &:hover {
+      opacity: 0.7;
+    }
   }
   ${mobile({ fontSize: "14px", paddingLeft: "20px" })}
 `;
