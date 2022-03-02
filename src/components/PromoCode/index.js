@@ -32,7 +32,7 @@ const Wrapper = styled.div`
   padding: 18px 0 18px;
   width: 100%;
   height: 100%;
-  background: ${({ theme }) => theme.bgPropmo};
+  background: ${({ theme }) => theme.bgBanner};
   ${mobile({ padding: "10px 0 10px" })}
 `;
 
@@ -49,7 +49,7 @@ const InWrapper = styled.div`
     font-size: 32px;
     font-weight: 700;
     line-height: 34px;
-    color: ${({ theme }) => theme.textPromo};
+    color: ${({ theme }) => theme.textBanner};
 
     ${mobile({ fontSize: "22px", paddingBottom: "3px" })};
 
@@ -64,20 +64,20 @@ const InputContainer = styled.div`
 `;
 
 const Input = styled.input`
+  font-family: "Open Sans Condensed", sans-serif;
+  width: 200px;
+  height: 39px;
   background: #ffffff;
+  color: #000000;
+  outline: none;
   border: 1px solid #0f9675;
   border-radius: 8px;
-  height: 39px;
   line-height: 39px;
-  color: #000000;
   font-size: 18px;
   padding: 0 10px;
-  outline: none;
-  -webkit-appearance: none;
-  font-family: "Open Sans Condensed", sans-serif;
   font-weight: 700;
-  width: 200px;
-
+  -webkit-appearance: none;
+  
   &::placeholder {
     color: #666;
     opacity: 0.4;

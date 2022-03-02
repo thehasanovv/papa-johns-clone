@@ -1,7 +1,14 @@
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { mobile, small, medium, large } from "../../responsive";
+import { openProductModal } from "../../store/showModalSlice";
 
 const Items = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const showInfoHandler = (id) => {
+    dispatch(openProductModal());
+  };
   return (
     <>
       {items.map((item) => (
@@ -12,7 +19,7 @@ const Items = ({ items }) => {
             </ImageContainer>
             <Title>
               <span>{item.name}</span>
-              <Button>SELECT</Button>
+              <Button onClick={() => showInfoHandler(item.id)}>SELECT</Button>
             </Title>
             <Ingredients>{item.ingredients}</Ingredients>
           </Cartcontainer>
@@ -27,8 +34,9 @@ export default Items;
 const Cart = styled.div`
   width: 25%;
   padding: 0 8px 32px;
-  ${medium({ width: "33.3333333%" })}
-  ${small({ width: "50%" })} ${mobile({ width: "100%" })};
+  ${medium({ width: "33.3333333%" })};
+  ${small({ width: "50%" })};
+  ${mobile({ width: "100%" })};
 `;
 
 const ImageContainer = styled.div`

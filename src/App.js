@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { darkTheme } from "./style/darkTheme";
 import { lightTheme } from "./style/lightTheme";
 import { GlobalStyles } from "./style/global";
-
 // import AppProvider from "./AppProvider";
 import Main from "./pages/Main";
 import Offers from "./pages/Offers";
@@ -16,6 +16,8 @@ import Pastas from "./pages/Pastas";
 import Drinks from "./pages/Drinks";
 import Desserts from "./pages/Desserts";
 import Sauces from "./pages/Sauces";
+import AuthModal from "./components/UI/Modal/AuthModal";
+import ProductModal from "./components/UI/Modal/ProductModal";
 import "./App.css";
 
 function App() {
@@ -23,9 +25,10 @@ function App() {
 
   return (
     <div className="App">
-      {/* <AppProvider> */}
       <ThemeProvider theme={darkMode ? lightTheme : darkTheme}>
         <GlobalStyles />
+        <ProductModal />
+        <AuthModal />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/offers" element={<Offers />} />
@@ -39,7 +42,6 @@ function App() {
           <Route path="/sauces" element={<Sauces />} />
         </Routes>
       </ThemeProvider>
-      {/* </AppProvider> */}
     </div>
   );
 }

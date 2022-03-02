@@ -12,4 +12,5 @@ const Wrapper = styled.div`
   max-width: 95%;
   margin: 0 auto;
   padding: 0 10px;
+  min-height: 80vh;
 `;

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { DarkMode } from "../Darkmode";
 import { mobile, small, medium } from "../../responsive";
 import styled from "styled-components";
@@ -6,10 +7,14 @@ import Badge from "@mui/material/Badge";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import pj_logo from "../../assets/pj_logo.png";
-import DropDown from "../DropDown/";
-import Flags from "../../sources/flags";
+import { openModal } from "../../store/showModalSlice";
 
 const HeaderTop = () => {
+  const dispatch = useDispatch();
+
+  const openModalHandler = () => {
+    dispatch(openModal());
+  };
   return (
     <Conainer>
       <Wrapper>
@@ -27,11 +32,10 @@ const HeaderTop = () => {
             </MenuIcon>
           </LeftMenu>
           <RightMenu>
-            {/* <DropDownContainer>
-              <DropDown options={Flags} />
-            </DropDownContainer> */}
-            <MenuItem margin={"0px"}>Sign in</MenuItem>
-            <MenuItem>/Sign Up</MenuItem>
+            <MenuItem margin={"0px"} onClick={openModalHandler}>
+              Sign in
+            </MenuItem>
+            <MenuItem onClick={openModalHandler}>/Sign Up</MenuItem>
             <ShoppingBasket>
               <Badge badgeContent={0} color="primary">
                 <ShoppingBasketOutlinedIcon />
@@ -160,17 +164,3 @@ const DropDownContainer = styled.span`
   }
 `;
 const Price = styled.span``;
-
-// const Button = styled.button`
-// border: none;
-// outline: none;
-// background: transparent;
-// cursor: pointer;
-// display: flex;
-// align-items: center;
-// font-family: "Open Sans Condensed", sans-serif;
-// font-size: 22px;
-// line-height: 24px;
-// font-weight: 700;
-// color: #000000;
-// `;

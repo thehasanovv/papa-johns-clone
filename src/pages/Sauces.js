@@ -27,7 +27,7 @@ export default Sauces;
 const OffersContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -13px;
+  margin: 0 -11px;
   font-size: 0;
   line-height: 0;
   margin-bottom: 40px;

@@ -44,7 +44,7 @@ const OffersContainer = styled.div`
 `;
 
 const ProductNav = styled.div`
-  background: #f1f1f1;
+  background: ${({ theme }) => theme.bgBanner};
   padding: 11px 23px 14px;
   margin-bottom: 19px;
 `;
@@ -59,7 +59,7 @@ const ListItem = styled.li`
   font-size: 23px;
   line-height: 25px;
   font-weight: 700;
-  color: #363636;
+  color: ${({ theme }) => theme.textBanner};
   -webkit-transition: all, 0.3s;
   transition: all, 0.3s;
   cursor: pointer;
