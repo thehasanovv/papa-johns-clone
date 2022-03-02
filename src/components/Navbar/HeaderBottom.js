@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { mobile, medium } from "../../Responsive";
+import { mobile, medium } from "../../responsive";
 
 const HeaderBottom = () => {
   return (
@@ -187,7 +187,7 @@ const ListItem = styled.li`
 
   & a {
     color: #fff;
-    
+
     &:hover {
       opacity: 0.7;
     }

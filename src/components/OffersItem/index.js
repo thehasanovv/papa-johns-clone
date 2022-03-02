@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobile, medium } from "../../Responsive";
+import { mobile, medium } from "../../responsive";
 
 const OffersItem = ({ items }) => {
   return (
@@ -29,7 +29,7 @@ const CartWrapper = styled.div`
 
   &:hover {
     transform: scale(1.01);
-    background: whitesmoke;
+    background-color: ${({ theme }) => theme.hoverCart};
   }
 `;
 

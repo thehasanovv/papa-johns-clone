@@ -3,7 +3,7 @@ import BgImg from "../../assets/footer-images-en-EN.png";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { mobile, medium } from "../../Responsive";
+import { mobile, medium } from "../../responsive";
 
 const Footer = () => {
   return (
@@ -67,7 +67,7 @@ const InWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   ${medium({ flexDirection: "column" })}
 `;
 

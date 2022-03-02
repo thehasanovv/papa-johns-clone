@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobile, small, medium, large } from "../../Responsive";
+import { mobile, small, medium, large } from "../../responsive";
 
 const Items = ({ items }) => {
   return (
@@ -27,10 +27,8 @@ export default Items;
 const Cart = styled.div`
   width: 25%;
   padding: 0 8px 32px;
-
   ${medium({ width: "33.3333333%" })}
-  ${small({ width: "50%" })}
-  ${mobile({ width: "100%" })}
+  ${small({ width: "50%" })} ${mobile({ width: "100%" })};
 `;
 
 const ImageContainer = styled.div`
@@ -42,7 +40,7 @@ const Cartcontainer = styled.div`
   padding: 0 5px 32px;
   &:hover {
     transform: scale(1.01);
-    background-color: whitesmoke;
+    background-color: ${({ theme }) => theme.hoverCart};
   }
 `;
 const Image = styled.img`
@@ -62,7 +60,7 @@ const Title = styled.div`
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: bold;
     font-size: 22px;
-    color: #171717;
+    color: ${({ theme }) => theme.text};
     line-height: 25px;
   }
 `;
@@ -77,12 +75,12 @@ const Button = styled.button`
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 700;
   font-size: 18px;
-  -webkit-transition: all, 0.3s;
   transition: all, 0.3s;
   height: 39px;
   line-height: 39px;
   border-radius: 4px;
   cursor: pointer;
+  -webkit-transition: all, 0.3s;
 
   &:hover {
     opacity: 0.7;
@@ -94,4 +92,5 @@ const Ingredients = styled.p`
   color: #282828;
   letter-spacing: 0px;
   line-height: 20px;
+  color: ${({ theme }) => theme.text};
 `;

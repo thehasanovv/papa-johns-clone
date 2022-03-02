@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobile, small, medium } from "../../Responsive";
+import { mobile, small, medium } from "../../responsive";
 
 const PromoCode = () => {
   return (
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
   padding: 18px 0 18px;
   width: 100%;
   height: 100%;
-  background: #f1f1f1;
+  background: ${({ theme }) => theme.bgPropmo};
   ${mobile({ padding: "10px 0 10px" })}
 `;
 
@@ -49,12 +49,12 @@ const InWrapper = styled.div`
     font-size: 32px;
     font-weight: 700;
     line-height: 34px;
-    color: #363636;
+    color: ${({ theme }) => theme.textPromo};
 
-    ${mobile({ fontSize: "22px", paddingBottom: "3px" })}
+    ${mobile({ fontSize: "22px", paddingBottom: "3px" })};
 
     & span {
-      color: #0f9675;
+      color: ${({ theme }) => theme.green};
     }
   }
 `;

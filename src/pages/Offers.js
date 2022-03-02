@@ -30,7 +30,7 @@ const SectionTitle = styled.h1`
   padding-bottom: 41px;
   font-weight: 700;
   font-size: 42px;
-  color: #000000;
+  color: ${({ theme }) => theme.text};
   line-height: 45px;
 `;
 

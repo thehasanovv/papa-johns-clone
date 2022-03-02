@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import { DarkMode } from "../Darkmode";
+import { mobile, small, medium } from "../../responsive";
 import styled from "styled-components";
 import Badge from "@mui/material/Badge";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import pj_logo from "../../assets/pj_logo.png";
 import DropDown from "../DropDown/";
 import Flags from "../../sources/flags";
-import { mobile, small, medium } from "../../Responsive";
-import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 
 const HeaderTop = () => {
   return (
@@ -35,6 +36,7 @@ const HeaderTop = () => {
               <Badge badgeContent={0} color="primary">
                 <ShoppingBasketOutlinedIcon />
               </Badge>
+              <DarkMode />
             </ShoppingBasket>
           </RightMenu>
         </Menu>
@@ -107,7 +109,7 @@ const MenuItem = styled.a`
   font-size: 23px;
   line-height: 25px;
   font-weight: 700;
-  color: #000000;
+  color: ${({ theme }) => theme.text};
   -webkit-transition: all, 0.3s;
   transition: all, 0.3s;
   cursor: pointer;
@@ -131,15 +133,15 @@ const RightMenu = styled.div`
 
 const ShoppingBasket = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 20px;
+  margin-top: 1px;
 
   @media (max-width: 780px) {
     & svg {
       font-size: 30px;
     }
   }
+  ${small({ marginLeft: "20px" })};
 `;
 
 const DropDownContainer = styled.span`

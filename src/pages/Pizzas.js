@@ -5,7 +5,7 @@ import PromoCode from "../components/PromoCode";
 import Container from "../components/Container";
 import Items from "../components/Items";
 import { pizzas } from "../sources/pizzas";
-import { mobile } from "../Responsive";
+import { mobile } from "../responsive";
 
 const Pizzas = () => {
   return (
