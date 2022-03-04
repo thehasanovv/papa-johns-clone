@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { openAuthModal } from "../../store/showAuthSlice";
+import { openCartModal } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
 import { DarkMode } from "../Darkmode";
 import { mobile, small, medium } from "../../responsive";
@@ -15,6 +16,11 @@ const HeaderTop = () => {
   const openModalHandler = () => {
     dispatch(openAuthModal());
   };
+
+  const openCartModalHandler = () => {
+    dispatch(openCartModal());
+  };
+
   return (
     <Conainer>
       <Wrapper>
@@ -37,7 +43,12 @@ const HeaderTop = () => {
             </MenuItem>
             <MenuItem onClick={openModalHandler}>/Sign Up</MenuItem>
             <ShoppingBasket>
-              <Badge badgeContent={0} color="primary">
+              <Badge
+                badgeContent={0}
+                color="primary"
+                onClick={openCartModalHandler}
+                style={{ cursor: "pointer" }}
+              >
                 <ShoppingBasketOutlinedIcon />
               </Badge>
               <DarkMode />
@@ -81,6 +92,7 @@ const Logo = styled.a`
 
   ${medium({ top: "13px", left: "15px" })}
 `;
+
 const LogoImg = styled.img`
   width: 140%;
 
@@ -104,6 +116,7 @@ const Menu = styled.div`
 const LeftMenu = styled.div`
   display: flex;
   align-items: center;
+
   ${small({ justifyContent: "center", width: "85%", paddingTop: "6px" })};
   ${mobile({ width: "70%" })};
 `;
@@ -164,4 +177,5 @@ const DropDownContainer = styled.span`
     -webkit-transition: all, 0.3s;
   }
 `;
+
 const Price = styled.span``;
