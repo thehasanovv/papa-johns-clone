@@ -1,13 +1,13 @@
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
 import { mobile, small, medium, large } from "../../responsive";
-import { openProductModal } from "../../store/showModalSlice";
+import { openProductModal } from "../../store/showProductSlice";
 
 const Items = ({ items }) => {
   const dispatch = useDispatch();
 
-  const showInfoHandler = (id) => {
-    dispatch(openProductModal());
+  const showInfoHandler = (item) => {
+    dispatch(openProductModal(item));
   };
   return (
     <>
@@ -19,7 +19,7 @@ const Items = ({ items }) => {
             </ImageContainer>
             <Title>
               <span>{item.name}</span>
-              <Button onClick={() => showInfoHandler(item.id)}>SELECT</Button>
+              <Button onClick={() => showInfoHandler(item)}>SELECT</Button>
             </Title>
             <Ingredients>{item.ingredients}</Ingredients>
           </Cartcontainer>

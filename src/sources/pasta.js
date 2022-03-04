@@ -9,6 +9,7 @@ export const pastas = [
     ingredients:
       "Spaghetti, Pepperoni, Ham, Italian Sausage, Green Peppers, Fresh Mushrooms, Mozzarella, Pizza Sauce",
     image: chickenPasta,
+    price: 8,
   },
   {
     id: "pas2",
@@ -16,11 +17,13 @@ export const pastas = [
     ingredients:
       "Spaghetti, Grilled Chicken, Fresh Mushrooms, Ranch Sauce, Mozzarella",
     image: mamasPasta,
+    price: 7,
   },
   {
     id: "pas3",
     name: "Mama's Pasta",
     ingredients: "Spaghetti, Parmesan, Oregano, Pizza Sauce, Mozzarella",
     image: superPapaPasta,
+    price: 6,
   },
 ];

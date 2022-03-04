@@ -16,32 +16,31 @@ import Pastas from "./pages/Pastas";
 import Drinks from "./pages/Drinks";
 import Desserts from "./pages/Desserts";
 import Sauces from "./pages/Sauces";
-import AuthModal from "./components/UI/Modal/AuthModal";
-import ProductModal from "./components/UI/Modal/ProductModal";
-import "./App.css";
 
+import "./App.css";
+import Layout from "./components/Layout";
 function App() {
   const darkMode = useSelector((state) => state.theme.isDarkMode);
 
   return (
     <div className="App">
-      <ThemeProvider theme={darkMode ? lightTheme : darkTheme}>
-        <GlobalStyles />
-        <ProductModal />
-        <AuthModal />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/offers" element={<Offers />} />
-          <Route path="/papadias" element={<Papadias />} />
-          <Route path="/pizza" element={<Pizzas />} />
-          <Route path="/snackes" element={<Snackes />} />
-          <Route path="/salads" element={<Salads />} />
-          <Route path="/pasta" element={<Pastas />} />
-          <Route path="/drinks" element={<Drinks />} />
-          <Route path="/desserts" element={<Desserts />} />
-          <Route path="/sauces" element={<Sauces />} />
-        </Routes>
-      </ThemeProvider>
+      <Layout>
+        <ThemeProvider theme={darkMode ? lightTheme : darkTheme}>
+          <GlobalStyles />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/offers" element={<Offers />} />
+            <Route path="/papadias" element={<Papadias />} />
+            <Route path="/pizza" element={<Pizzas />} />
+            <Route path="/snackes" element={<Snackes />} />
+            <Route path="/salads" element={<Salads />} />
+            <Route path="/pasta" element={<Pastas />} />
+            <Route path="/drinks" element={<Drinks />} />
+            <Route path="/desserts" element={<Desserts />} />
+            <Route path="/sauces" element={<Sauces />} />
+          </Routes>
+        </ThemeProvider>
+      </Layout>
     </div>
   );
 }

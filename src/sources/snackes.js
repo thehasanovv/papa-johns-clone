@@ -7,11 +7,13 @@ export const snackes = [
     name: "Cheddar Cheese Sticks",
     ingredients: "1 Garlic Sauce,  1 Pizza Sauce",
     image: cheddarCheeseSticks,
+    price: 9,
   },
   {
     id: "s2",
     name: "Cheese sticks with ham and mushrooms",
     ingredients: "Garlic Sauce, Ham, Mushroom, Mozzarella",
     image: cheeseSticksHamMushrroms,
+    price: 9,
   },
 ];

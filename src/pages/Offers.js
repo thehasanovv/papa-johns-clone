@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import PromoCode from "../components/PromoCode";
 import Container from "../components/Container";
 import OffersItem from "../components/OffersItem";
@@ -10,7 +8,6 @@ import { offers } from "../sources/offers";
 const Offers = () => {
   return (
     <>
-      <Navbar />
       <PromoCode />
       <Container>
         <SectionTitle>Offers</SectionTitle>
@@ -18,7 +15,6 @@ const Offers = () => {
           <OffersItem items={offers} />
         </OffersContainer>
       </Container>
-      <Footer />
     </>
   );
 };

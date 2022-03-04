@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import PromoCode from "../components/PromoCode";
 import Container from "../components/Container";
 import Items from "../components/Items";
@@ -10,14 +8,12 @@ import { pastas } from "../sources/pasta";
 const Offers = () => {
   return (
     <>
-      <Navbar />
       <PromoCode />
       <Container>
         <OffersContainer>
           <Items items={pastas} />
         </OffersContainer>
       </Container>
-      <Footer />
     </>
   );
 };

@@ -10,6 +10,7 @@ export const salads = [
     ingredients:
       "Grilled Chicken, Iceberg Lettuce, Croutons, Tomatoes, Shaved Parmesan, Caesar Dressing",
     image: caesarSalad,
+    price: 9,
   },
   {
     id: "sa2",
@@ -17,6 +18,7 @@ export const salads = [
     ingredients:
       "Cucumbers, Tomatoes, Iceberg Lettuce, Black Olives, Feta Cheese, Italian Dressing",
     image: gardenSalad,
+    price: 6,
   },
   {
     id: "sa3",
@@ -24,6 +26,7 @@ export const salads = [
     ingredients:
       "Cucumbers, Tomatoes, Iceberg Lettuce, Black Olives, Feta Cheese, Italian Dressing",
     image: greekSalad,
+    price: 5,
   },
   {
     id: "sa4",
@@ -31,5 +34,6 @@ export const salads = [
     ingredients:
       "Tuna, Iceberg Letucce, Black Olives, Corn, Cucumbers, Italian Dressing",
     image: tunaSalad,
+    price: 8,
   },
 ];

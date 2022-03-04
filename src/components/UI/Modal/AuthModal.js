@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import styled from "styled-components";
 import CancelIcon from "@mui/icons-material/Cancel";
-import { closeModal } from "../../../store/showModalSlice";
+
+import { useSelector, useDispatch } from "react-redux";
+import { closeAuthModal } from "../../../store/showAuthSlice";
 
 const AuthModal = () => {
-  const isShow = useSelector((state) => state.modal.isShowAuth);
+  const isShow = useSelector((state) => state.auth.isShowAuthModal);
   const dispatch = useDispatch();
 
   const handleClose = () => {
-    dispatch(closeModal());
+    dispatch(closeAuthModal());
   };
   return (
     <div>

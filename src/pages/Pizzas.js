@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import PromoCode from "../components/PromoCode";
 import Container from "../components/Container";
 import Items from "../components/Items";
@@ -10,7 +8,6 @@ import { mobile } from "../responsive";
 const Pizzas = () => {
   return (
     <>
-      <Navbar />
       <PromoCode />
       <Container>
         <ProductNav>
@@ -27,7 +24,6 @@ const Pizzas = () => {
           <Items items={pizzas} />
         </OffersContainer>
       </Container>
-      <Footer />
     </>
   );
 };

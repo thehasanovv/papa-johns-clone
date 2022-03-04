@@ -1,33 +1,75 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import styled from "styled-components";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import styled from "styled-components";
 import CancelIcon from "@mui/icons-material/Cancel";
-import { closeProductModal } from "../../../store/showModalSlice";
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+  closeProductModal,
+  addQuantity,
+  removeQuantity,
+} from "../../../store/showProductSlice";
 
 const AuthModal = () => {
-  const isShow = useSelector((state) => state.modal.isShowOrder);
+  const { isShowProductModal, item } = useSelector((state) => state.product);
+
   const dispatch = useDispatch();
 
   const handleClose = () => {
     dispatch(closeProductModal());
   };
+
+  const onAddHandler = () => {
+    console.log("addQuantity");
+    dispatch(addQuantity());
+  };
+
+  const onRemoveHandler = () => {
+    dispatch(removeQuantity());
+  };
+
   return (
     <div>
       <Modal
-        open={isShow}
+        open={isShowProductModal}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Container>
-          <Wrapper>
-            <span onClick={handleClose}>
-              <CancelIcon />
-            </span>
-            This Is Product Modal
-          </Wrapper>
+          {item[0] && (
+            <Wrapper>
+              <span onClick={handleClose}>
+                <CancelIcon />
+              </span>
+              <Image>
+                <img src={item[0].image} />
+              </Image>
+              <ProductName>{item[0].name}</ProductName>
+              <PriceContainer>
+                <Count>
+                  <CountItem bgColor={"grey"} onClick={onRemoveHandler}>
+                    -
+                  </CountItem>
+                  <CountItem bgColor={"#f1f1f1"} color={"#000"}>
+                    {item[0].quantity}
+                  </CountItem>
+                  <CountItem bgColor={"#0f9675"} onClick={onAddHandler}>
+                    +
+                  </CountItem>
+                </Count>
+                <Price>
+                  {item[0].totalPrice}
+                  <AttachMoneyIcon />
+                </Price>
+              </PriceContainer>
+              <OrderContainer>
+                <Button>ADD</Button>
+              </OrderContainer>
+            </Wrapper>
+          )}
         </Container>
       </Modal>
     </div>
@@ -42,8 +84,7 @@ const Container = styled(Box)`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #f2f2f2;
-  width: 400px;
-  height: 400px;
+  max-width: 400px;
   outline: none;
 `;
 
@@ -52,6 +93,9 @@ const Wrapper = styled.div`
   height: 100%;
   padding: 20px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   & span {
     position: absolute;
@@ -59,4 +103,87 @@ const Wrapper = styled.div`
     top: 2%;
     cursor: pointer;
   }
+`;
+
+const Image = styled.div`
+  margin: 0 auto;
+  width: 320px;
+  max-width: 100%;
+  margin-top: 20px;
+
+  & img {
+    width: 100%;
+    min-width: 100%;
+  }
+`;
+
+const ProductName = styled.h2`
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 700;
+  line-height: 44px;
+  font-size: 30px;
+  color: #000000;
+  margin-bottom: 10px;
+`;
+
+const PriceContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+
+const Count = styled.div`
+  display: flex;
+`;
+
+const CountItem = styled.div`
+  height: 29px;
+  width: 29px;
+  line-height: 29px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: ${(props) => props.bgColor};
+  color: ${(props) => props.color || "#fff"};
+`;
+
+const Price = styled.div`
+  font-weight: 700;
+  line-height: 1;
+  font-size: 32px;
+  color: #000000;
+  font-style: normal !important;
+  display: flex;
+  align-items: center;
+  & svg {
+    font-size: 32px;
+  }
+`;
+
+const OrderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+const Button = styled.div`
+  font-family: "Open Sans Condensed", sans-serif;
+  padding: 0 21px;
+  background: #0f9675;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  transition: all, 0.3s;
+  height: 39px;
+  line-height: 39px;
+  border-radius: 4px;
+  -webkit-transition: all, 0.3s;
 `;

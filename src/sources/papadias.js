@@ -9,6 +9,7 @@ export const papadias = [
     ingredients:
       "Pizza Sauce, İtalian Sausage, Pepperoni, Mozzarella, Parmesan, Italian spices ",
     image: italianPapadias,
+    price: 7,
   },
   {
     id: "p2",
@@ -16,11 +17,13 @@ export const papadias = [
     ingredients:
       "Ranch Sauce, Grilled Chicken, Mushrooms,  Jalapeno Peppers, Tomatoes, Mozzarella",
     image: chickenBbqPapadias,
+    price: 7,
   },
   {
     id: "p3",
     name: "Spicy Chicken Ranch Papadias",
     ingredients: "Grilled Сhicken, Fresh Mushrooms, Mozzarella, BBG Sauce",
     image: spicyChikenRanchPapadias,
+    price: 7,
   },
 ];

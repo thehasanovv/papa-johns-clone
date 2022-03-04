@@ -1,10 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import toggleTheme from "./themeSlice";
-import modalSlice from "./showModalSlice";
+import productSlice from "./showProductSlice";
+import showAuthSlice from "./showAuthSlice";
+import cartSlice from "./cartSlice";
 
 export const store = configureStore({
   reducer: {
     theme: toggleTheme,
-    modal: modalSlice,
+    product: productSlice,
+    auth: showAuthSlice,
+    cart: cartSlice,
   },
 });

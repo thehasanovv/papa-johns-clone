@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import PromoCode from "../components/PromoCode";
 import Container from "../components/Container";
 import Items from "../components/Items";
@@ -10,7 +8,6 @@ import { salads } from "../sources/salads";
 const Offers = () => {
   return (
     <>
-      <Navbar />
       <MainContainer>
         <PromoCode />
         <Container>
@@ -19,7 +16,6 @@ const Offers = () => {
           </OffersContainer>
         </Container>
       </MainContainer>
-      <Footer />
     </>
   );
 };

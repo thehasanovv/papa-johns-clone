@@ -1,19 +1,19 @@
+import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { openAuthModal } from "../../store/showAuthSlice";
 import { useDispatch } from "react-redux";
 import { DarkMode } from "../Darkmode";
 import { mobile, small, medium } from "../../responsive";
-import styled from "styled-components";
 import Badge from "@mui/material/Badge";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import pj_logo from "../../assets/pj_logo.png";
-import { openModal } from "../../store/showModalSlice";
 
 const HeaderTop = () => {
   const dispatch = useDispatch();
 
   const openModalHandler = () => {
-    dispatch(openModal());
+    dispatch(openAuthModal());
   };
   return (
     <Conainer>
@@ -118,6 +118,7 @@ const MenuItem = styled.a`
   transition: all, 0.3s;
   cursor: pointer;
   margin-right: ${(props) => props.margin || "25px"};
+
   ${small({ display: "none" })}
 `;
 
@@ -152,15 +153,15 @@ const DropDownContainer = styled.span`
   margin-right: 25px;
   & button {
     font-family: "Open Sans Condensed", sans-serif;
+    gap: 5px;
     font-size: 23px;
     line-height: 25px;
     font-weight: 700;
-    color: #000000 !important;
-    -webkit-transition: all, 0.3s;
     transition: all, 0.3s;
-    cursor: pointer;
+    color: #000000 !important;
     text-transform: capitalize;
-    gap: 5px;
+    cursor: pointer;
+    -webkit-transition: all, 0.3s;
   }
 `;
 const Price = styled.span``;
