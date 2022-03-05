@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobile, small, medium } from "../../responsive";
+import { mobile } from "../../responsive/index.js";
 
 const PromoCode = () => {
   return (
@@ -77,7 +77,7 @@ const Input = styled.input`
   padding: 0 10px;
   font-weight: 700;
   -webkit-appearance: none;
-  
+
   &::placeholder {
     color: #666;
     opacity: 0.4;
