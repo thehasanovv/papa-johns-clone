@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { mobile } from "../../responsive/";
 
 const PromoCode = () => {
   return (
@@ -33,7 +32,6 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background: ${({ theme }) => theme.bgBanner};
-  ${mobile({ padding: "10px 0 10px" })}
 `;
 
 const InWrapper = styled.div`
@@ -42,7 +40,6 @@ const InWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  ${mobile({ flexDirection: "column" })}
 
   & p {
     font-family: "Open Sans Condensed", sans-serif;
@@ -51,7 +48,6 @@ const InWrapper = styled.div`
     line-height: 34px;
     color: ${({ theme }) => theme.textBanner};
 
-    ${mobile({ fontSize: "22px", paddingBottom: "3px" })};
 
     & span {
       color: ${({ theme }) => theme.green};
@@ -60,7 +56,6 @@ const InWrapper = styled.div`
 `;
 const InputContainer = styled.div`
   margin-left: 39px;
-  ${mobile({ marginLeft: "0px" })}
 `;
 
 const Input = styled.input`
@@ -81,7 +76,6 @@ const Input = styled.input`
   &::placeholder {
     color: #666;
     opacity: 0.4;
-    ${mobile({ fontSize: "16px" })}
   }
 
   &:-ms-input-placeholder {
@@ -93,7 +87,6 @@ const Input = styled.input`
     color: #666;
     opacity: 0.4;
   }
-  ${mobile({ height: "27px", width: "170px" })}
 `;
 const Button = styled.button`
   border: none;
@@ -111,5 +104,4 @@ const Button = styled.button`
   margin-left: 13px;
   transition: all, 0.3s;
 
-  ${mobile({ height: "27px" })}
 `;
