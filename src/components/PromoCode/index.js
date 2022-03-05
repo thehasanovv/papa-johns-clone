@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobile } from "../../responsive/index.js";
+import { mobile } from "../../responsive";
 
 const PromoCode = () => {
   return (
