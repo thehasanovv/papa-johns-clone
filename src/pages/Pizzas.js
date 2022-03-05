@@ -3,7 +3,7 @@ import PromoCode from "../components/PromoCode";
 import Container from "../components/Container";
 import Items from "../components/Items";
 import { pizzas } from "../sources/pizzas";
-import { mobile } from "../responsive/index";
+// import { mobile } from "../responsive/index";
 
 const Pizzas = () => {
   return (
@@ -60,5 +60,8 @@ const ListItem = styled.li`
   transition: all, 0.3s;
   cursor: pointer;
 
-  ${mobile({ marginRight: "14px" })}
+  @media screen and (max-width: 576px) {
+    margin-right: 14px;
+  }
 `;
+// ${mobile({ marginRight: "14px" })}
