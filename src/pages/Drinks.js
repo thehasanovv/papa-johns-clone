@@ -2,7 +2,6 @@ import styled from "styled-components";
 import PromoCode from "../components/PromoCode";
 import Container from "../components/Container";
 import Items from "../components/Items";
-
 import { drinks } from "../sources/drinks";
 
 const Offers = () => {

@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import CancelIcon from "@mui/icons-material/Cancel";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { useSelector, useDispatch } from "react-redux";
 import {
   closeCartModal,
@@ -9,8 +11,6 @@ import {
   removeItemFromCart,
   deleteItemFromCart,
 } from "../../../store/cartSlice";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 const AuthModal = () => {
   const { isShowCartModal, cartTotalQuantity, items } = useSelector(
@@ -128,12 +128,13 @@ const Container = styled(Box)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f2f2f2;
   max-width: 650px;
   width: 100%;
   padding: 25px 22px 22px 35px;
   outline: none;
+  background-color: #f2f2f2;
 `;
+// background: ${({ theme }) => theme.bgBanner};
 
 const Wrapper = styled.div`
   width: 100%;

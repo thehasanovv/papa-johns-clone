@@ -3,7 +3,7 @@ import PromoCode from "../components/PromoCode";
 import Container from "../components/Container";
 import Items from "../components/Items";
 import { pizzas } from "../sources/pizzas";
-import { mobile } from "../responsive";
+import { mobile } from "../responsive/index";
 
 const Pizzas = () => {
   return (
