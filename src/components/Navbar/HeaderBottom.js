@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { mobile, medium } from "../../responsive";
+import { mobile, medium } from "../../style/responsive";
 
 const HeaderBottom = () => {
   return (

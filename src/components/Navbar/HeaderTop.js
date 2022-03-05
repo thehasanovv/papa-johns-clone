@@ -4,7 +4,7 @@ import { openAuthModal } from "../../store/showAuthSlice";
 import { openCartModal } from "../../store/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { DarkMode } from "../Darkmode";
-import { mobile, small, medium } from "../../responsive";
+import { mobile, small, medium } from "../../style/responsive";
 import Badge from "@mui/material/Badge";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";

@@ -3,7 +3,7 @@ import BgImg from "../../assets/footer-images-en-EN.png";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { mobile, medium } from "../../responsive";
+import { mobile, medium } from "../../style/responsive";
 
 const Footer = () => {
   return (

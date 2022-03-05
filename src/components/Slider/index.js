@@ -9,8 +9,7 @@ import pizzaParty from "../../assets/pizza-party-sat-banner.png";
 import discountAge from "../../assets/discountAge.jpg";
 import twoBig from "../../assets/two-big-banner.png";
 import styled from "styled-components";
-
-import { mobile } from "../../responsive";
+import { mobile } from "../../style/responsive";
 
 const Slider = () => {
   return (

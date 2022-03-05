@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobile, medium } from "../../responsive";
+import { mobile, medium } from "../../style/responsive";
 
 const OffersItem = ({ items }) => {
   return (

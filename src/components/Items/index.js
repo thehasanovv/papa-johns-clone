@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { mobile, small, medium } from "../../responsive";
+import { mobile, small, medium } from "../../style/responsive";
 import { openProductModal } from "../../store/showProductSlice";
 
 const Items = ({ items }) => {
