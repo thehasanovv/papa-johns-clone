@@ -3,14 +3,14 @@ import cheeseSticksHamMushrroms from "../assets/snackes/cheese-sticks-ham-mushro
 
 export const snackes = [
   {
-    id: "s1",
+    id: "snac1",
     name: "Cheddar Cheese Sticks",
     ingredients: "1 Garlic Sauce,  1 Pizza Sauce",
     image: cheddarCheeseSticks,
     price: 9,
   },
   {
-    id: "s2",
+    id: "snac2",
     name: "Cheese sticks with ham and mushrooms",
     ingredients: "Garlic Sauce, Ham, Mushroom, Mozzarella",
     image: cheeseSticksHamMushrroms,

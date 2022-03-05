@@ -3,15 +3,42 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useSelector, useDispatch } from "react-redux";
-import { closeCartModal } from "../../../store/cartSlice";
-import img from "../../../assets/Pizza/greek.jpg";
+import {
+  closeCartModal,
+  addItemToCart,
+  removeItemFromCart,
+  deleteItemFromCart,
+} from "../../../store/cartSlice";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+
 const AuthModal = () => {
-  const isShowCartModal = useSelector((state) => state.cart.isShowCartModal);
+  const { isShowCartModal, cartTotalQuantity, items } = useSelector(
+    (state) => state.cart
+  );
   const dispatch = useDispatch();
 
   const handleClose = () => {
     dispatch(closeCartModal());
   };
+
+  const onAddItem = (item) => {
+    console.log(item);
+    const { price, id } = item;
+    console.log(price);
+
+    dispatch(addItemToCart({ id, price, quantity: 1 }));
+  };
+
+  const onRemoveItem = (id) => {
+    console.log("asd");
+    dispatch(removeItemFromCart({ id }));
+  };
+
+  const onDeleteItem = (id) => {
+    dispatch(deleteItemFromCart(id));
+  };
+
   return (
     <div>
       <Modal
@@ -22,55 +49,69 @@ const AuthModal = () => {
       >
         <Container>
           <Wrapper>
-            <span onClick={handleClose} style={{ position: "absolute" }}>
+            <span
+              onClick={handleClose}
+              style={{ position: "absolute", cursor: "pointer" }}
+            >
               <CancelIcon />
             </span>
             <Title>Cart Modal</Title>
             <TotalCount>
-              "Item in your basket:<span>0</span> "
+              "Item in your basket: <span>{cartTotalQuantity}</span> "
             </TotalCount>
-            {/* Demo Item 1 */}
-            <ItemContainer>
-              <Image>
-                <img src={img} />
-              </Image>
-              <Text>
-                <span>Spicy Garden Special</span>
-              </Text>
-              <Count>
-                <CountItem bgColor={"grey"}>-</CountItem>
-                <CountItem bgColor={"#f1f1f1"} color={"#000"}>
-                  0
-                </CountItem>
-                <CountItem bgColor={"#0f9675"}>+</CountItem>
-              </Count>
-              <Sum>
-                <span>15</span>
-              </Sum>
-            </ItemContainer>
-            {/* Demo Item 2 */}
-            <ItemContainer>
-              <Image>
-                <img src={img} />
-              </Image>
-              <Text>
-                <span>Spicy Garden Special</span>
-              </Text>
-              <Count>
-                <CountItem bgColor={"grey"}>-</CountItem>
-                <CountItem bgColor={"#f1f1f1"} color={"#000"}>
-                  0
-                </CountItem>
-                <CountItem bgColor={"#0f9675"}>+</CountItem>
-              </Count>
-              <Sum>
-                <span>15</span>
-              </Sum>
-            </ItemContainer>
+            {/* Cart Items */}
+            {items.map((item) => (
+              <ItemContainer key={item.id}>
+                <Image>
+                  <img src={item.image} />
+                </Image>
+                <Text>
+                  <span>{item.name}</span>
+                </Text>
+                <Count>
+                  <CountItem
+                    bgColor={"grey"}
+                    onClick={() => {
+                      onRemoveItem(item.id);
+                    }}
+                  >
+                    -
+                  </CountItem>
+                  <CountItem bgColor={"#f1f1f1"} color={"#000"}>
+                    {item.quantity}
+                  </CountItem>
+                  <CountItem
+                    bgColor={"#0f9675"}
+                    onClick={() => {
+                      onAddItem(item);
+                    }}
+                  >
+                    +
+                  </CountItem>
+                </Count>
+                <Sum>
+                  <span>{item.totalPrice}</span>
+                  <span>
+                    <AttachMoneyIcon />
+                  </span>
+                  <span
+                    style={{ color: "#ad0f14", cursor: "pointer" }}
+                    onClick={() => {
+                      onDeleteItem(item.id);
+                    }}
+                  >
+                    <DeleteForeverIcon />
+                  </span>
+                </Sum>
+              </ItemContainer>
+            ))}
             <Checkout>
               <CheckoutBtn>Checkout</CheckoutBtn>
               <Amount>
                 <span>Total Amount: 0</span>
+                <span>
+                  <AttachMoneyIcon />
+                </span>
               </Amount>
             </Checkout>
           </Wrapper>
@@ -88,7 +129,8 @@ const Container = styled(Box)`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #f2f2f2;
-  width: 650px;
+  max-width: 650px;
+  width: 100%;
   padding: 25px 22px 22px 35px;
   outline: none;
 `;
@@ -96,12 +138,10 @@ const Container = styled(Box)`
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  padding: 20px;
 
   & span {
     right: 3%;
     top: 2%;
-    cursor: pointer;
   }
 `;
 
@@ -116,6 +156,7 @@ const Title = styled.h2`
 
 const TotalCount = styled.div`
   margin-bottom: 35px;
+
   & span {
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;
@@ -142,7 +183,6 @@ const Image = styled.div`
 
 const Text = styled.div`
   width: 200px;
-  display: inline-block;
   top: -4px;
   padding-top: 0px;
 
@@ -178,9 +218,8 @@ const CountItem = styled.div`
 `;
 
 const Sum = styled.div`
-  width: 160px;
-  text-align: right;
-  padding-right: 20px;
+  margin-left: auto;
+  display: flex;
 
   & span {
     font-family: "Open Sans Condensed", sans-serif;
@@ -217,6 +256,7 @@ const CheckoutBtn = styled.button`
 `;
 
 const Amount = styled.div`
+  display: flex;
   & span {
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;

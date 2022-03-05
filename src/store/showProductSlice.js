@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
   isShowAuth: false,
@@ -21,6 +21,7 @@ const productSlice = createSlice({
         image: item.image,
         totalPrice: item.price,
       });
+      console.log(current(state));
     },
     closeProductModal(state) {
       state.isShowProductModal = false;
@@ -32,6 +33,7 @@ const productSlice = createSlice({
       existingItem[0].quantity++;
       existingItem[0].totalPrice =
         existingItem[0].totalPrice + existingItem[0].price;
+      console.log(current(state));
     },
 
     removeQuantity(state) {

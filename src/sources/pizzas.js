@@ -17,6 +17,7 @@ export const pizzas = [
     name: "Chicken Ranch",
     ingredients: "Grilled Chicken, Tomatoes, Ranch Sauce, Mozzarella",
     image: chikenRanch,
+    price: 10,
   },
   {
     id: "002",
@@ -24,6 +25,7 @@ export const pizzas = [
     name: "Chicken BBQ",
     ingredients: "Grilled Сhicken, Fresh Mushrooms, BBQ Sauce, Mozzarella",
     image: chikenBBQ,
+    price: 11,
   },
   {
     id: "003",
@@ -32,6 +34,7 @@ export const pizzas = [
     ingredients:
       "Pepperoni, Italian Sausage, Ham, Fresh Mushrooms, Green Peppers, Black Olives, Mozzarella",
     image: superPapa,
+    price: 12,
   },
   {
     id: "004",
@@ -39,6 +42,7 @@ export const pizzas = [
     name: "All The Meats",
     ingredients: "Pepperoni, Italian Sausage, Beef, Ham, Mozzarella",
     image: allTheMeat,
+    price: 13,
   },
   {
     id: "005",
@@ -47,6 +51,7 @@ export const pizzas = [
     ingredients:
       "Jalapeno peppers, Tomatoes, Fresh Mushrooms, Black Olives, Green Peppers, Mozzarella",
     image: spicyGardenSpecial,
+    price: 14,
   },
   {
     id: "006",
@@ -55,6 +60,7 @@ export const pizzas = [
     ingredients:
       "Tomatoes, Olives, Feta Cheese, Oregano, Hot Peppers, Mozzarella",
     image: greek,
+    price: 11,
   },
   {
     id: "007",
@@ -62,6 +68,7 @@ export const pizzas = [
     name: "American Hot",
     ingredients: "Tomato Sauce, Mozzarella, Pepperoni and Jalapeno peppers",
     image: americanHot,
+    price: 12,
   },
   {
     id: "008",
@@ -70,5 +77,6 @@ export const pizzas = [
     ingredients:
       "Ranch Sauce, Grilled Chicken, Mushrooms, Garlic, Jalapeno Peppers, Tomatoes, and Mozzarella",
     image: spicyChickenRanch,
+    price: 13,
   },
 ];

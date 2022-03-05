@@ -5,7 +5,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useSelector, useDispatch } from "react-redux";
-
+import { addItemToCart } from "../../../store/cartSlice";
 import {
   closeProductModal,
   addQuantity,
@@ -16,18 +16,29 @@ const AuthModal = () => {
   const { isShowProductModal, item } = useSelector((state) => state.product);
 
   const dispatch = useDispatch();
-
   const handleClose = () => {
     dispatch(closeProductModal());
   };
-
+  // Inc product count
   const onAddHandler = () => {
-    console.log("addQuantity");
     dispatch(addQuantity());
   };
-
+  // Dec product count
   const onRemoveHandler = () => {
     dispatch(removeQuantity());
+  };
+  // Add Item to basket
+  const addItemToCartHandler = (product) => {
+    dispatch(
+      addItemToCart({
+        id: product.id,
+        name: product.name,
+        image: product.image,
+        quantity: product.quantity,
+        price: product.price,
+        totalPrice: product.totalPrice,
+      })
+    );
   };
 
   return (
@@ -66,7 +77,9 @@ const AuthModal = () => {
                 </Price>
               </PriceContainer>
               <OrderContainer>
-                <Button>ADD</Button>
+                <Button onClick={() => addItemToCartHandler(item[0])}>
+                  ADD
+                </Button>
               </OrderContainer>
             </Wrapper>
           )}
@@ -185,5 +198,6 @@ const Button = styled.div`
   height: 39px;
   line-height: 39px;
   border-radius: 4px;
+  cursor: pointer;
   -webkit-transition: all, 0.3s;
 `;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { openAuthModal } from "../../store/showAuthSlice";
 import { openCartModal } from "../../store/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { DarkMode } from "../Darkmode";
 import { mobile, small, medium } from "../../responsive";
 import Badge from "@mui/material/Badge";
@@ -12,6 +12,8 @@ import pj_logo from "../../assets/pj_logo.png";
 
 const HeaderTop = () => {
   const dispatch = useDispatch();
+
+  const totalQuantity = useSelector((state) => state.cart.cartTotalQuantity);
 
   const openModalHandler = () => {
     dispatch(openAuthModal());
@@ -44,7 +46,7 @@ const HeaderTop = () => {
             <MenuItem onClick={openModalHandler}>/Sign Up</MenuItem>
             <ShoppingBasket>
               <Badge
-                badgeContent={0}
+                badgeContent={totalQuantity}
                 color="primary"
                 onClick={openCartModalHandler}
                 style={{ cursor: "pointer" }}
