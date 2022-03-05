@@ -31,5 +31,3 @@ export const mobile = (props) => {
     }
   `;
 };
-
-// ${mobile({ flexDirection: "column" })}
