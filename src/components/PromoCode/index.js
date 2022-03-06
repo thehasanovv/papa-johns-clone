@@ -60,6 +60,8 @@ const InWrapper = styled.div`
 `;
 const InputContainer = styled.div`
   margin-left: 39px;
+  display: flex;
+  align-items: center;
   ${mobile({ marginLeft: "0px" })}
 `;
 

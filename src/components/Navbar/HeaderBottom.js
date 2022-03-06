@@ -154,7 +154,7 @@ const Wrapper = styled.div`
     padding-left: 290px;
   }
 
-  ${medium({ paddingLeft: "0px" })}
+  ${medium({ paddingLeft: "0px", maxWidth: "85%" })}
 `;
 const Wrap = styled.div`
   width: 100%;
@@ -192,7 +192,7 @@ const ListItem = styled.li`
       opacity: 0.7;
     }
   }
-  ${mobile({ fontSize: "14px", paddingLeft: "20px" })}
+  ${mobile({ fontSize: "14px", paddingLeft: "10px" })}
 `;
 
 const Points = styled.div``;

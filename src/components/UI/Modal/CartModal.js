@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import CancelIcon from "@mui/icons-material/Cancel";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { mobile } from "../../../style/responsive";
 import { useSelector, useDispatch } from "react-redux";
 import {
   closeCartModal,
@@ -62,47 +63,51 @@ const AuthModal = () => {
             {/* Cart Items */}
             {items.map((item) => (
               <ItemContainer key={item.id}>
-                <Image>
-                  <img src={item.image} />
-                </Image>
-                <Text>
-                  <span>{item.name}</span>
-                </Text>
-                <Count>
-                  <CountItem
-                    bgColor={"grey"}
-                    onClick={() => {
-                      onRemoveItem(item.id);
-                    }}
-                  >
-                    -
-                  </CountItem>
-                  <CountItem bgColor={"#f1f1f1"} color={"#000"}>
-                    {item.quantity}
-                  </CountItem>
-                  <CountItem
-                    bgColor={"#0f9675"}
-                    onClick={() => {
-                      onAddItem(item);
-                    }}
-                  >
-                    +
-                  </CountItem>
-                </Count>
-                <Sum>
-                  <span>{item.totalPrice}</span>
-                  <span>
-                    <AttachMoneyIcon />
-                  </span>
-                  <span
-                    style={{ color: "#ad0f14", cursor: "pointer" }}
-                    onClick={() => {
-                      onDeleteItem(item.id);
-                    }}
-                  >
-                    <DeleteForeverIcon />
-                  </span>
-                </Sum>
+                <ItemContainerFlex>
+                  <Image>
+                    <img src={item.image} />
+                  </Image>
+                  <Text>
+                    <span>{item.name}</span>
+                  </Text>
+                </ItemContainerFlex>
+                <ItemContainerFlex>
+                  <Count>
+                    <CountItem
+                      bgColor={"grey"}
+                      onClick={() => {
+                        onRemoveItem(item.id);
+                      }}
+                    >
+                      -
+                    </CountItem>
+                    <CountItem bgColor={"#f1f1f1"} color={"#000"}>
+                      {item.quantity}
+                    </CountItem>
+                    <CountItem
+                      bgColor={"#0f9675"}
+                      onClick={() => {
+                        onAddItem(item);
+                      }}
+                    >
+                      +
+                    </CountItem>
+                  </Count>
+                  <Sum>
+                    <span>{item.totalPrice}</span>
+                    <span>
+                      <AttachMoneyIcon />
+                    </span>
+                    <span
+                      style={{ color: "#ad0f14", cursor: "pointer" }}
+                      onClick={() => {
+                        onDeleteItem(item.id);
+                      }}
+                    >
+                      <DeleteForeverIcon />
+                    </span>
+                  </Sum>
+                </ItemContainerFlex>
               </ItemContainer>
             ))}
             <Checkout>
@@ -133,8 +138,10 @@ const Container = styled(Box)`
   padding: 25px 22px 22px 35px;
   outline: none;
   background-color: #f2f2f2;
+  max-height: 400px;
+  overflow: auto;
+  ${mobile({ maxWidth: "340px" })};
 `;
-// background: ${({ theme }) => theme.bgBanner};
 
 const Wrapper = styled.div`
   width: 100%;
@@ -153,6 +160,7 @@ const Title = styled.h2`
   color: #000000;
   line-height: 44px;
   padding-bottom: 15px;
+  ${mobile({ fontSize: "32px", lineHeight: "22px" })};
 `;
 
 const TotalCount = styled.div`
@@ -168,8 +176,11 @@ const ItemContainer = styled.div`
   padding: 5px 0 15px 0;
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column", marginBottom: "30px" })}
 `;
-
+const ItemContainerFlex = styled.div`
+  display: flex;
+`;
 const Image = styled.div`
   width: 76px;
   height: 76px;
@@ -235,6 +246,7 @@ const Checkout = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column-reverse" })}
 `;
 
 const CheckoutBtn = styled.button`
@@ -253,6 +265,7 @@ const CheckoutBtn = styled.button`
   text-transform: uppercase;
   transition: all, 0.3s;
   cursor: pointer;
+  margin: 7px 0;
   -webkit-transition: all, 0.3s;
 `;
 

@@ -56,5 +56,5 @@ const Container = styled.div`
 `;
 
 const Image = styled.img`
-  ${mobile({ minHeight: "160px" })}
+  ${mobile({ minHeight: "180px" })}
 `;
