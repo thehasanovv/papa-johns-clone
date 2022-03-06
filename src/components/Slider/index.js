@@ -53,8 +53,10 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 0 10px;
   margin-bottom: 30px;
+
+  ${mobile({ maxWidth: "100%", width: "auto", padding: "0px" })}
 `;
 
 const Image = styled.img`
-  ${mobile({ minHeight: "180px" })}
+  ${mobile({ minHeight: "210px" })}
 `;
