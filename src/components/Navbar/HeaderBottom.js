@@ -192,7 +192,7 @@ const ListItem = styled.li`
       opacity: 0.7;
     }
   }
-  ${mobile({ fontSize: "18px", paddingLeft: "10px" })}
+  ${mobile({ fontSize: "18px", paddingLeft: "10px", marginBottom: "20px" })}
 `;
 
 const Points = styled.div``;
