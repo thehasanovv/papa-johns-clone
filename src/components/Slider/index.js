@@ -67,6 +67,6 @@ const Image = styled.img`
 
 const MobileContainer = styled.div`
   display: none;
-  height: 55vh;
+  height: 65vh;
   ${mobile({ display: "block" })};
 `;
