@@ -2,46 +2,50 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import chiken from "../../assets/chiken-ranch-banner.png";
-import combo from "../../assets/kombo-banner.jpg";
-import odChershenbesi from "../../assets/odchershenbesi-banner.jpg";
-import pizzaParty from "../../assets/pizza-party-sat-banner.png";
-import discountAge from "../../assets/discountAge.jpg";
-import twoBig from "../../assets/two-big-banner.png";
-import styled from "styled-components";
 import { mobile } from "../../style/responsive";
+
+import styled from "styled-components";
+
+import { images } from "./images";
+import { mobileImages } from "./mobile-images";
 
 const Slider = () => {
   return (
-    <Container>
-      <Carousel
-        showThumbs={false}
-        autoPlay={true}
-        emulateTouch={true}
-        showArrows={false}
-        infiniteLoop={true}
-        showStatus={false}
-      >
-        <div>
-          <Image src={chiken} />
-        </div>
-        <div>
-          <Image src={combo} />
-        </div>
-        <div>
-          <Image src={odChershenbesi} />
-        </div>
-        <div>
-          <Image src={discountAge} />
-        </div>
-        <div>
-          <Image src={pizzaParty} />
-        </div>
-        <div>
-          <Image src={twoBig} />
-        </div>
-      </Carousel>
-    </Container>
+    <>
+      <Container>
+        <Carousel
+          showThumbs={false}
+          autoPlay={true}
+          emulateTouch={true}
+          showArrows={false}
+          infiniteLoop={true}
+          showStatus={false}
+        >
+          {images.map((item) => (
+            <div key={item.id}>
+              <Image src={item.image} />
+            </div>
+          ))}
+        </Carousel>
+      </Container>
+      {/* Mobile */}
+      <MobileContainer>
+        <Carousel
+          showThumbs={false}
+          autoPlay={true}
+          emulateTouch={true}
+          showArrows={false}
+          infiniteLoop={true}
+          showStatus={false}
+        >
+          {mobileImages.map((item) => (
+            <div key={item.id}>
+              <Image src={item.image} />
+            </div>
+          ))}
+        </Carousel>
+      </MobileContainer>
+    </>
   );
 };
 
@@ -54,9 +58,15 @@ const Container = styled.div`
   padding: 0 10px;
   margin-bottom: 30px;
 
-  ${mobile({ maxWidth: "100%", width: "auto", padding: "0px" })}
+  ${mobile({ display: "none" })}
 `;
 
 const Image = styled.img`
-  ${mobile({ minHeight: "210px" })}
+  ${mobile({ maxHeight: "410px", marginBottom: "50px" })}
+`;
+
+const MobileContainer = styled.div`
+  display: none;
+  height: 55vh;
+  ${mobile({ display: "block" })};
 `;
