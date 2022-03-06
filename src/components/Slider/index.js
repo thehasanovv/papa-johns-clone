@@ -62,7 +62,7 @@ const Container = styled.div`
 `;
 
 const Image = styled.img`
-  ${mobile({ maxHeight: "410px", marginBottom: "50px" })}
+  ${mobile({ height: "410px", marginBottom: "40px" })}
 `;
 
 const MobileContainer = styled.div`
