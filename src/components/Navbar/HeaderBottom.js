@@ -154,7 +154,7 @@ const Wrapper = styled.div`
     padding-left: 290px;
   }
 
-  ${medium({ paddingLeft: "0px", maxWidth: "85%" })}
+  ${medium({ paddingLeft: "0px" })}
 `;
 const Wrap = styled.div`
   width: 100%;
@@ -185,6 +185,10 @@ const ListItem = styled.li`
   text-transform: uppercase;
   position: relative;
 
+  &:last-child {
+    padding-right: 25px;
+  }
+  
   & a {
     color: #fff;
 
