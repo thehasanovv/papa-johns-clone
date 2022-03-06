@@ -169,7 +169,7 @@ const Wrap = styled.div`
     overflowY: "hidden",
     overflowX: "auto",
     overflowScrolling: "touch",
-    WebkitOverflowScrolling: "touch",
+    webkitOverflowScrolling: "touch",
   })}
 `;
 const List = styled.ul`
