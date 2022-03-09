@@ -26,7 +26,7 @@ const HeaderBottom = () => {
             </ListItem>
             <ListItem>
               <NavLink
-                to="/pizza"
+                to="/pizza/all"
                 className={({ isActive }) => (isActive ? "isActive" : "")}
               >
                 Pizza
@@ -188,7 +188,7 @@ const ListItem = styled.li`
   &:last-child {
     padding-right: 25px;
   }
-  
+
   & a {
     color: #fff;
 

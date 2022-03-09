@@ -31,13 +31,13 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/offers" element={<Offers />} />
             <Route path="/papadias" element={<Papadias />} />
-            <Route path="/pizza" element={<Pizzas />} />
             <Route path="/snackes" element={<Snackes />} />
             <Route path="/salads" element={<Salads />} />
             <Route path="/pasta" element={<Pastas />} />
             <Route path="/drinks" element={<Drinks />} />
             <Route path="/desserts" element={<Desserts />} />
             <Route path="/sauces" element={<Sauces />} />
+            <Route path="/pizza/:id" element={<Pizzas />} />
           </Routes>
         </ThemeProvider>
       </Layout>
