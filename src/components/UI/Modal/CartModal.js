@@ -24,9 +24,7 @@ const AuthModal = () => {
   };
 
   const onAddItem = (item) => {
-    console.log(item);
     const { price, id } = item;
-    console.log(price);
 
     dispatch(addItemToCart({ id, price, quantity: 1 }));
   };
@@ -137,9 +135,10 @@ const Container = styled(Box)`
   width: 100%;
   padding: 25px 22px 22px 35px;
   outline: none;
-  background-color: #f2f2f2;
   max-height: 400px;
   overflow: auto;
+  background: ${({ theme }) => theme.bgBanner};
+  color: ${({ theme }) => theme.textBanner};
   ${mobile({ maxWidth: "340px" })};
 `;
 
@@ -157,7 +156,7 @@ const Title = styled.h2`
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 700;
   font-size: 42px;
-  color: #000000;
+  color: ${({ theme }) => theme.textBanner};
   line-height: 44px;
   padding-bottom: 15px;
   ${mobile({ fontSize: "32px", lineHeight: "22px" })};
@@ -202,7 +201,8 @@ const Text = styled.div`
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;
     font-size: 22px;
-    color: #171717;
+    color: ${({ theme }) => theme.textBanner};
+
     line-height: 25px;
     display: block;
     padding-bottom: 7px;
@@ -230,14 +230,15 @@ const CountItem = styled.div`
 `;
 
 const Sum = styled.div`
-  margin-left: auto;
+  margin-left: 12px;
   display: flex;
 
   & span {
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;
     font-size: 22px;
-    color: #171717;
+    color: ${({ theme }) => theme.textBanner};
+
     line-height: 24px;
   }
 `;
@@ -259,7 +260,8 @@ const CheckoutBtn = styled.button`
   outline: none;
   font-size: 18px;
   font-weight: 700;
-  color: #fff;
+  color: ${({ theme }) => theme.textBanner};
+
   background: #ad0f14;
   text-align: center;
   text-transform: uppercase;
@@ -275,7 +277,8 @@ const Amount = styled.div`
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;
     font-size: 22px;
-    color: #171717;
+    color: ${({ theme }) => theme.textBanner};
+
     line-height: 25px;
   }
 `;

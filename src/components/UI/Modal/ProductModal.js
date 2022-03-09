@@ -96,7 +96,8 @@ const Container = styled(Box)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f2f2f2;
+  background: ${({ theme }) => theme.bgBanner};
+
   max-width: 400px;
   outline: none;
 `;
@@ -135,7 +136,8 @@ const ProductName = styled.h2`
   font-weight: 700;
   line-height: 44px;
   font-size: 30px;
-  color: #000000;
+  color: ${({ theme }) => theme.textBanner};
+
   margin-bottom: 10px;
 `;
 
@@ -170,7 +172,8 @@ const Price = styled.div`
   font-weight: 700;
   line-height: 1;
   font-size: 32px;
-  color: #000000;
+  color: ${({ theme }) => theme.textBanner};
+
   font-style: normal !important;
   display: flex;
   align-items: center;
@@ -189,8 +192,8 @@ const Button = styled.div`
   font-family: "Open Sans Condensed", sans-serif;
   padding: 0 21px;
   background: #0f9675;
-  text-transform: uppercase;
-  color: #fff;
+  color: ${({ theme }) => theme.textBanner};
+
   font-weight: 700;
   font-size: 18px;
   text-align: center;

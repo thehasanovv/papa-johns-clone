@@ -24,8 +24,8 @@ function App() {
 
   return (
     <div className="App">
-      <Layout>
-        <ThemeProvider theme={darkMode ? lightTheme : darkTheme}>
+      <ThemeProvider theme={darkMode ? lightTheme : darkTheme}>
+        <Layout>
           <GlobalStyles />
           <Routes>
             <Route path="/" element={<Main />} />
@@ -39,8 +39,8 @@ function App() {
             <Route path="/sauces" element={<Sauces />} />
             <Route path="/pizza/:id" element={<Pizzas />} />
           </Routes>
-        </ThemeProvider>
-      </Layout>
+        </Layout>
+      </ThemeProvider>
     </div>
   );
 }
