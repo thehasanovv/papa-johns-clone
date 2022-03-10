@@ -178,6 +178,8 @@ const ItemContainer = styled.div`
 `;
 const ItemContainerFlex = styled.div`
   display: flex;
+
+  ${mobile({ justifyContent: "space-between" })}
 `;
 const Image = styled.div`
   width: 76px;
@@ -262,7 +264,6 @@ const CheckoutBtn = styled.button`
   font-size: 18px;
   font-weight: 700;
   color: #fff;
-
   background: #ad0f14;
   text-align: center;
   text-transform: uppercase;
@@ -270,6 +271,7 @@ const CheckoutBtn = styled.button`
   cursor: pointer;
   margin: 7px 0;
   -webkit-transition: all, 0.3s;
+  ${mobile({ width: "100%" })}
 `;
 
 const Amount = styled.div`

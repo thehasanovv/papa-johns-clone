@@ -29,9 +29,9 @@ const productSlice = createSlice({
 
     addQuantity(state) {
       const existingItem = [...state.item];
+      const price = existingItem[0].totalPrice + existingItem[0].price;
       existingItem[0].quantity++;
-      existingItem[0].totalPrice =
-        existingItem[0].totalPrice + existingItem[0].price;
+      existingItem[0].totalPrice = +price.toFixed(2);
     },
 
     removeQuantity(state) {
@@ -39,9 +39,9 @@ const productSlice = createSlice({
       if (existingItem[0].quantity === 1) {
         return;
       }
+      const price = existingItem[0].totalPrice - existingItem[0].price;
       existingItem[0].quantity--;
-      existingItem[0].totalPrice =
-        existingItem[0].totalPrice - existingItem[0].price;
+      existingItem[0].totalPrice = +price.toFixed(2);
     },
   },
 });

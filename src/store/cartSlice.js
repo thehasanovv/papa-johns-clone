@@ -14,8 +14,9 @@ const cartSlice = createSlice({
     addItemToCart(state, action) {
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
+      const price = state.cartTotalPrice + newItem.totalPrice;
+      state.cartTotalPrice = +price.toFixed(2);
       state.cartTotalQuantity = state.cartTotalQuantity + newItem.quantity;
-      state.cartTotalPrice = state.cartTotalPrice + newItem.totalPrice;
       if (!existingItem) {
         state.items.push({
           id: newItem.id,
@@ -26,22 +27,26 @@ const cartSlice = createSlice({
           image: newItem.image,
         });
       } else {
-        existingItem.quantity = existingItem.quantity + newItem.quantity;
-        existingItem.totalPrice =
+        const price =
           existingItem.totalPrice + newItem.price * newItem.quantity;
+        existingItem.quantity = existingItem.quantity + newItem.quantity;
+        existingItem.totalPrice = +price.toFixed(2);
       }
     },
 
     removeItemFromCart(state, action) {
       const { id } = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
+      const price = state.cartTotalPrice - existingItem.price;
+      state.cartTotalPrice = +price.toFixed(2);
       state.cartTotalQuantity--;
-      state.cartTotalPrice = state.cartTotalPrice - existingItem.price;
+
       if (existingItem.quantity === 1) {
         state.items = state.items.filter((item) => item.id !== id);
       } else {
+        const price = existingItem.totalPrice - existingItem.price;
         existingItem.quantity--;
-        existingItem.totalPrice = existingItem.totalPrice - existingItem.price;
+        existingItem.totalPrice = +price.toFixed(2);
       }
     },
 
