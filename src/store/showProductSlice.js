@@ -32,7 +32,6 @@ const productSlice = createSlice({
       existingItem[0].quantity++;
       existingItem[0].totalPrice =
         existingItem[0].totalPrice + existingItem[0].price;
-      console.log(current(state));
     },
 
     removeQuantity(state) {
