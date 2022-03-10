@@ -36,6 +36,7 @@ const cartSlice = createSlice({
       const { id } = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
       state.cartTotalQuantity--;
+      state.cartTotalPrice = state.cartTotalPrice - existingItem.price;
       if (existingItem.quantity === 1) {
         state.items = state.items.filter((item) => item.id !== id);
       } else {
@@ -49,6 +50,8 @@ const cartSlice = createSlice({
       const existingItem = state.items.find((item) => item.id === id);
       state.cartTotalQuantity = state.cartTotalQuantity - existingItem.quantity;
       state.items = state.items.filter((item) => item.id !== id);
+      state.cartTotalPrice =
+        state.cartTotalPrice - existingItem.price * existingItem.quantity;
     },
 
     openCartModal(state) {
