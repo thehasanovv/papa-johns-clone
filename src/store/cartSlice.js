@@ -25,12 +25,12 @@ const cartSlice = createSlice({
           image: newItem.image,
         });
       } else {
-        existingItem.quantity++;
+        existingItem.quantity = existingItem.quantity + newItem.quantity;
         existingItem.totalPrice =
           existingItem.totalPrice + newItem.price * newItem.quantity;
       }
     },
-    
+
     removeItemFromCart(state, action) {
       const { id } = action.payload;
       const existingItem = state.items.find((item) => item.id === id);

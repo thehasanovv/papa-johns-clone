@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import Modal from "@mui/material/Modal";
@@ -96,7 +95,7 @@ const Container = styled(Box)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: ${({ theme }) => theme.bgBanner};
+  background: ${({ theme }) => theme.body};
 
   max-width: 400px;
   outline: none;
@@ -136,7 +135,7 @@ const ProductName = styled.h2`
   font-weight: 700;
   line-height: 44px;
   font-size: 30px;
-  color: ${({ theme }) => theme.textBanner};
+  color: ${({ theme }) => theme.text};
 
   margin-bottom: 10px;
 `;
@@ -172,7 +171,7 @@ const Price = styled.div`
   font-weight: 700;
   line-height: 1;
   font-size: 32px;
-  color: ${({ theme }) => theme.textBanner};
+  color: ${({ theme }) => theme.text};
 
   font-style: normal !important;
   display: flex;
@@ -192,7 +191,7 @@ const Button = styled.div`
   font-family: "Open Sans Condensed", sans-serif;
   padding: 0 21px;
   background: #0f9675;
-  color: ${({ theme }) => theme.textBanner};
+  color: #fff;
 
   font-weight: 700;
   font-size: 18px;

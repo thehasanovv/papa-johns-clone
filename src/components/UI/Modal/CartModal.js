@@ -14,9 +14,8 @@ import {
 } from "../../../store/cartSlice";
 
 const AuthModal = () => {
-  const { isShowCartModal, cartTotalQuantity, items } = useSelector(
-    (state) => state.cart
-  );
+  const { isShowCartModal, cartTotalQuantity, cartTotalPrice, items } =
+    useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const handleClose = () => {
@@ -111,7 +110,7 @@ const AuthModal = () => {
             <Checkout>
               <CheckoutBtn>Checkout</CheckoutBtn>
               <Amount>
-                <span>Total Amount: 0</span>
+                <span>Total Amount: {cartTotalPrice}</span>
                 <span>
                   <AttachMoneyIcon />
                 </span>
@@ -137,7 +136,7 @@ const Container = styled(Box)`
   outline: none;
   max-height: 400px;
   overflow: auto;
-  background: ${({ theme }) => theme.bgBanner};
+  background: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.textBanner};
   ${mobile({ maxWidth: "340px" })};
 `;
@@ -148,7 +147,7 @@ const Wrapper = styled.div`
 
   & span {
     right: 3%;
-    top: 2%;
+    top: 5%;
   }
 `;
 
@@ -156,7 +155,7 @@ const Title = styled.h2`
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 700;
   font-size: 42px;
-  color: ${({ theme }) => theme.textBanner};
+  color: ${({ theme }) => theme.text};
   line-height: 44px;
   padding-bottom: 15px;
   ${mobile({ fontSize: "32px", lineHeight: "22px" })};
@@ -201,7 +200,7 @@ const Text = styled.div`
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;
     font-size: 22px;
-    color: ${({ theme }) => theme.textBanner};
+    color: ${({ theme }) => theme.text};
 
     line-height: 25px;
     display: block;
@@ -237,7 +236,7 @@ const Sum = styled.div`
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;
     font-size: 22px;
-    color: ${({ theme }) => theme.textBanner};
+    color: ${({ theme }) => theme.text};
 
     line-height: 24px;
   }
@@ -260,7 +259,7 @@ const CheckoutBtn = styled.button`
   outline: none;
   font-size: 18px;
   font-weight: 700;
-  color: ${({ theme }) => theme.textBanner};
+  color: #fff;
 
   background: #ad0f14;
   text-align: center;
@@ -277,7 +276,7 @@ const Amount = styled.div`
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;
     font-size: 22px;
-    color: ${({ theme }) => theme.textBanner};
+    color: ${({ theme }) => theme.text};
 
     line-height: 25px;
   }
