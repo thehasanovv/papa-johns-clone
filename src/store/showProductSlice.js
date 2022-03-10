@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isShowAuth: false,
@@ -21,7 +21,6 @@ const productSlice = createSlice({
         image: item.image,
         totalPrice: item.price,
       });
-      console.log(current(state));
     },
     closeProductModal(state) {
       state.isShowProductModal = false;

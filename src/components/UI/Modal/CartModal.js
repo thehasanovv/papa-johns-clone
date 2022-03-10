@@ -24,12 +24,11 @@ const AuthModal = () => {
 
   const onAddItem = (item) => {
     const { price, id } = item;
-
-    dispatch(addItemToCart({ id, price, quantity: 1 }));
+    const totalPrice = price;
+    dispatch(addItemToCart({ id, price, totalPrice, quantity: 1 }));
   };
 
   const onRemoveItem = (id) => {
-    console.log("asd");
     dispatch(removeItemFromCart({ id }));
   };
 
@@ -68,6 +67,7 @@ const AuthModal = () => {
                     <span>{item.name}</span>
                   </Text>
                 </ItemContainerFlex>
+
                 <ItemContainerFlex>
                   <Count>
                     <CountItem
@@ -229,16 +229,18 @@ const CountItem = styled.div`
 `;
 
 const Sum = styled.div`
+  display: flex;
+  justify-content: flex-end;
   margin-left: 12px;
   display: flex;
+  width: 80px;
 
   & span {
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;
     font-size: 22px;
-    color: ${({ theme }) => theme.text};
-
     line-height: 24px;
+    color: ${({ theme }) => theme.text};
   }
 `;
 
@@ -276,8 +278,7 @@ const Amount = styled.div`
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: 700;
     font-size: 22px;
-    color: ${({ theme }) => theme.text};
-
     line-height: 25px;
+    color: ${({ theme }) => theme.text};
   }
 `;
