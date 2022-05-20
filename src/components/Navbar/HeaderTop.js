@@ -15,8 +15,8 @@ const HeaderTop = () => {
 
   const totalQuantity = useSelector((state) => state.cart.cartTotalQuantity);
 
-  const openModalHandler = () => {
-    dispatch(openAuthModal());
+  const openModalHandler = (sign) => {
+    dispatch(openAuthModal(sign));
   };
 
   const openCartModalHandler = () => {
@@ -40,10 +40,12 @@ const HeaderTop = () => {
             </MenuIcon>
           </LeftMenu>
           <RightMenu>
-            <MenuItem margin={"0px"} onClick={openModalHandler}>
+            <MenuItem margin={"0px"} onClick={() => openModalHandler("signin")}>
               Sign in
             </MenuItem>
-            <MenuItem onClick={openModalHandler}>/Sign Up</MenuItem>
+            <MenuItem onClick={() => openModalHandler("signup")}>
+              /Sign Up
+            </MenuItem>
             <ShoppingBasket>
               <Badge
                 badgeContent={totalQuantity}

@@ -10,6 +10,7 @@ import {
   addQuantity,
   removeQuantity,
 } from "../../../store/showProductSlice";
+import { Toast } from "../Toast";
 
 const AuthModal = () => {
   const { isShowProductModal, item } = useSelector((state) => state.product);
@@ -28,6 +29,13 @@ const AuthModal = () => {
   };
   // Add Item to basket
   const addItemToCartHandler = (product) => {
+    Toast.fire({
+      icon: "success",
+      title: "Product added to basket",
+    });
+
+    dispatch(closeProductModal());
+
     dispatch(
       addItemToCart({
         id: product.id,

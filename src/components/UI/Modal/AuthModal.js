@@ -2,21 +2,28 @@ import styled from "styled-components";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import CancelIcon from "@mui/icons-material/Cancel";
+import SignIn from "../../SignIn";
+import SignUp from "../../SignUp";
 
 import { useSelector, useDispatch } from "react-redux";
-import { closeAuthModal } from "../../../store/showAuthSlice";
+import { closeAuthModal, setSign } from "../../../store/showAuthSlice";
 
 const AuthModal = () => {
-  const isShow = useSelector((state) => state.auth.isShowAuthModal);
+  const isShow = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const handleClose = () => {
     dispatch(closeAuthModal());
   };
+
+  const handleSetSign = (sign) => {
+    dispatch(setSign(sign));
+  };
+
   return (
     <div>
       <Modal
-        open={isShow}
+        open={isShow.isShowAuthModal}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -26,10 +33,12 @@ const AuthModal = () => {
             <span onClick={handleClose}>
               <CancelIcon />
             </span>
-            <div style={{ display: "flex" }}>
-              <h1>Sign in</h1>
-              <h1>Sign out</h1>
-            </div>
+            <Buttons>
+              <h1 onClick={handleSetSign.bind(null, "signin")}>Sign in</h1>
+              <h1 onClick={handleSetSign.bind(null, "signup")}>Sign up</h1>
+            </Buttons>
+            {isShow.sign === "signin" && <SignIn />}
+            {isShow.sign === "signup" && <SignUp />}
           </Wrapper>
         </Container>
       </Modal>
@@ -39,6 +48,14 @@ const AuthModal = () => {
 
 export default AuthModal;
 
+const Buttons = styled.div`
+  display: flex;
+
+  & > h1 {
+    cursor: pointer;
+    margin-right: 5px;
+  }
+`;
 const Container = styled(Box)`
   position: absolute;
   top: 50%;
