@@ -36,7 +36,7 @@ const HeaderTop = () => {
             <MenuItem>Restaurants</MenuItem>
             <MenuItem>Papa Rewards</MenuItem>
             <MenuIcon>
-              <AssignmentIndIcon />
+              <AssignmentIndIcon onClick={() => openModalHandler("signin")} />
             </MenuIcon>
           </LeftMenu>
           <RightMenu>

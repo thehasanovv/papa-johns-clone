@@ -34,8 +34,18 @@ const AuthModal = () => {
               <CancelIcon />
             </span>
             <Buttons>
-              <h1 onClick={handleSetSign.bind(null, "signin")}>Sign in</h1>
-              <h1 onClick={handleSetSign.bind(null, "signup")}>Sign up</h1>
+              <SignInBtn
+                onClick={handleSetSign.bind(null, "signin")}
+                color={isShow.sign}
+              >
+                Sign in
+              </SignInBtn>
+              <SignUpBtn
+                onClick={handleSetSign.bind(null, "signup")}
+                color={isShow.sign}
+              >
+                Sign up
+              </SignUpBtn>
             </Buttons>
             {isShow.sign === "signin" && <SignIn />}
             {isShow.sign === "signup" && <SignUp />}
@@ -50,12 +60,29 @@ export default AuthModal;
 
 const Buttons = styled.div`
   display: flex;
+`;
 
-  & > h1 {
-    cursor: pointer;
-    margin-right: 5px;
+const SignInBtn = styled.h1`
+  cursor: pointer;
+  margin-right: 15px;
+  color: ${(props) => (props.color === "signin" ? "#000" : "#adaaaa")};
+  font-weight: 500;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    height: 2px;
+    width: 100%;
+    background-color: ${(props) =>
+      props.color === "signin" ? "#000" : "gray"};
   }
 `;
+const SignUpBtn = styled(SignInBtn)`
+  color: ${(props) => (props.color === "signup" ? "#000" : "gray")};
+`;
+
 const Container = styled(Box)`
   position: absolute;
   top: 50%;
